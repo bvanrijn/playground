@@ -5,10 +5,11 @@ This code lets you run a Telegram bot locally in your own browser using JavaScri
 
 The example includes receiving messages, sending messages, keyboards and using the bot inline. You can easily use other parts of the Bot API using similar code.
 
-You can try it out at <a href="http://anyro.se/playground/">anyro.se/playground/</a> or download the <a href="https://raw.githubusercontent.com/nadam/playground/gh-pages/index.html">index.html</a> file and open it locally.
+You can try it out at <a href="https://bot.pubstorm.site">bot.pubstorm.site</a> or download [index.html](index.html) and open it locally.
 
 Creating your own bot
 ---------------------
+
 If you are new to bots or bot development for Telegram check out the following links:
 - [Introduction to bots](https://core.telegram.org/bots)
 - [Telegram Bot API documentation](https://core.telegram.org/bots/api)
@@ -16,4 +17,5 @@ If you are new to bots or bot development for Telegram check out the following l
 
 License
 ----------------
+
 [Apache License 2.0](LICENSE)
