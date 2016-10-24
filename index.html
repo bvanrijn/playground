@@ -44,60 +44,60 @@
 
         <label for="onUpdate">Handle <a href="https://core.telegram.org/bots/api#update">update</a></label><br>
         <textarea id="onUpdate" rows="18" cols="100">
-        var message = update.message;
-        if (message) {
-          if (message.text == "/ping") {
-            call("sendMessage", {
-              chat_id: message.chat.id,
-              text: "pong",
-              reply_markup: {
-                inline_keyboard: [
-                  [{text: "Google", url: "https://google.com"}],
-                  [{text: "Hide keyboard", callback_data: "HIDE"}]
-                ]
-              }
-            });
-          }
-        }
+var message = update.message;
+if (message) {
+  if (message.text == "/ping") {
+    call("sendMessage", {
+      chat_id: message.chat.id,
+      text: "pong",
+      reply_markup: {
+        inline_keyboard: [
+          [{text: "Google", url: "https://google.com"}],
+          [{text: "Hide keyboard", callback_data: "HIDE"}]
+        ]
+      }
+    });
+  }
+}
 
-        var query = update.callback_query;
-        if (query) {
-          if (query.data == "HIDE") {
-            call("editMessageReplyMarkup", {
-              chat_id: query.message.chat.id,
-              message_id: query.message.message_id
-            });
-          }
-        }
+var query = update.callback_query;
+if (query) {
+  if (query.data == "HIDE") {
+    call("editMessageReplyMarkup", {
+      chat_id: query.message.chat.id,
+      message_id: query.message.message_id
+    });
+  }
+}
 
-        var inlineQuery = update.inline_query;
-        if (inlineQuery && inlineQuery.query) {
-          call("answerInlineQuery", {
-            inline_query_id: inlineQuery.id,
-            results: [
-              {
-                type: "article",
-                id: "B",
-                title: "Bold",
-                input_message_content: {
-                  message_text: "<b>" + inlineQuery.query + "</b>",
-                  parse_mode: "HTML"
-                },
-                description: inlineQuery.query
-              },
-              {
-                type: "article",
-                id: "I",
-                title: "Italic",
-                input_message_content: {
-                  message_text: "<i>" + inlineQuery.query + "</i>",
-                  parse_mode: "HTML"
-                },
-                description: inlineQuery.query
-              }
-            ]
-          });
-        }
+var inlineQuery = update.inline_query;
+if (inlineQuery && inlineQuery.query) {
+  call("answerInlineQuery", {
+    inline_query_id: inlineQuery.id,
+    results: [
+      {
+        type: "article",
+        id: "B",
+        title: "Bold",
+        input_message_content: {
+          message_text: "<b>" + inlineQuery.query + "</b>",
+          parse_mode: "HTML"
+        },
+        description: inlineQuery.query
+      },
+      {
+        type: "article",
+        id: "I",
+        title: "Italic",
+        input_message_content: {
+          message_text: "<i>" + inlineQuery.query + "</i>",
+          parse_mode: "HTML"
+        },
+        description: inlineQuery.query
+      }
+    ]
+  });
+}
         </textarea><br><br>
 
         <script>
