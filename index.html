@@ -1,44 +1,49 @@
 <html>
-<!-- The license of this page is Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0) -->
+    <!-- The license of this page is Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0) -->
+    <head>
+        <title>Bot API Playground</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            body {
+                margin: 40px auto;
+                max-width: 900px;
+                line-height: 1.4;
+                font-size: 16px;
+                color: #444;
+                padding: 0 10px
+            }
 
-<head>
-    <title>Bot API Playground</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style type="text/css">
-        body {
-            margin: 40px auto;
-            max-width: 900px;
-            line-height: 1.4;
-            font-size: 16px;
-            color: #444;
-            padding: 0 10px
-        }
+            h1,
+            h2,
+            h3 {
+                font-family: sans-serif;
+                line-height: 1.2
+            }
 
-        h1,
-        h2,
-        h3 {
-            font-family: sans-serif;
-            line-height: 1.2
-        }
+            textarea {
+                border: 1px solid #999999;
+                font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+            }
+        </style>
+    </head>
 
-        textarea {
-            border: 1px solid #999999;
-            font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-    </style>
-</head>
+    <body>
+        <h1>Bot API Playground</h1>
 
-<body>
-    <h1>Bot API Playground</h1>
-    <p>This page will run a Telegram bot locally in your web browser. Just enter your bot token from <a href="https://telegram.me/botfather">BotFather</a> and press the Start button. Press the button again or reload the page to stop the bot.</p>
-    <p>To change the functionality simply edit the JavaScript below. Please note that the code is not saved automatically, so if you reload the page it will be lost.</p>
-    <p>The source code of this website is also <a href="https://github.com/nadam/playground">available on Github</a>.
+
+        <p>This page will run a Telegram bot locally in your web browser. Just enter your bot token from <a href="https://telegram.me/botfather">BotFather</a> and press the Start button. Press the button again or reload the page to stop the bot.</p>
+
+        <p>To change the functionality simply edit the JavaScript below. Please note that the code is not saved automatically, so if you reload the page it will be lost.</p>
+
+        <p>The source code of this website is also <a href="https://github.com/bvanrijn/playground">available on Github</a>, and is a modified version of <a href="https://github.com/nadam/playground">available on Github</a></p>.
         <br><br>
+
         <label for="token">Bot token</label><br>
         <input id="token" type="text" placeholder="Paste your bot token from @BotFather here" size=60 /><br><br>
         <button id="startStop" type="button" onclick="startBot()">Start</button><br><br>
+
         <label for="onUpdate">Handle <a href="https://core.telegram.org/bots/api#update">update</a></label><br>
-        <textarea id="onUpdate" rows=18 cols=100>
+        <textarea id="onUpdate" rows="18" cols="100">
             var message = update.message;
             if (message) {
               if (message.text == "/ping") {
@@ -94,7 +99,7 @@
               });
             }
         </textarea><br><br>
-        
+
         <script>
             if (localStorage.script) {
                 document.write('<button id="load" type="button" onClick="loadScript()">Load</button>');
