@@ -35,7 +35,7 @@
 
         <p>To change the functionality simply edit the JavaScript below. Please note that the code is not saved automatically, so if you reload the page it will be lost.</p>
 
-        <p>The source code of this website is also <a href="https://github.com/bvanrijn/playground">available on Github</a>, and is a modified version of <a href="https://github.com/nadam/playground">available on Github</a></p>.
+        <p>The source code of this website is <a href="https://github.com/bvanrijn/playground">available on Github</a>, and is a modified version of <a href="https://github.com/nadam/playground">nadam/playground</a></p>.
         <br><br>
 
         <label for="token">Bot token</label><br>
@@ -44,60 +44,60 @@
 
         <label for="onUpdate">Handle <a href="https://core.telegram.org/bots/api#update">update</a></label><br>
         <textarea id="onUpdate" rows="18" cols="100">
-            var message = update.message;
-            if (message) {
-              if (message.text == "/ping") {
-                call("sendMessage", {
-                  chat_id: message.chat.id,
-                  text: "pong",
-                  reply_markup: {
-                    inline_keyboard: [
-                      [{text: "Google", url: "https://google.com"}],
-                      [{text: "Hide keyboard", callback_data: "HIDE"}]
-                    ]
-                  }
-                });
-              }
-            }
-
-            var query = update.callback_query;
-            if (query) {
-              if (query.data == "HIDE") {
-                call("editMessageReplyMarkup", {
-                  chat_id: query.message.chat.id,
-                  message_id: query.message.message_id
-                });
-              }
-            }
-
-            var inlineQuery = update.inline_query;
-            if (inlineQuery && inlineQuery.query) {
-              call("answerInlineQuery", {
-                inline_query_id: inlineQuery.id,
-                results: [
-                  {
-                    type: "article",
-                    id: "B",
-                    title: "Bold",
-                    input_message_content: {
-                      message_text: "<b>" + inlineQuery.query + "</b>",
-                      parse_mode: "HTML"
-                    },
-                    description: inlineQuery.query
-                  },
-                  {
-                    type: "article",
-                    id: "I",
-                    title: "Italic",
-                    input_message_content: {
-                      message_text: "<i>" + inlineQuery.query + "</i>",
-                      parse_mode: "HTML"
-                    },
-                    description: inlineQuery.query
-                  }
+        var message = update.message;
+        if (message) {
+          if (message.text == "/ping") {
+            call("sendMessage", {
+              chat_id: message.chat.id,
+              text: "pong",
+              reply_markup: {
+                inline_keyboard: [
+                  [{text: "Google", url: "https://google.com"}],
+                  [{text: "Hide keyboard", callback_data: "HIDE"}]
                 ]
-              });
-            }
+              }
+            });
+          }
+        }
+
+        var query = update.callback_query;
+        if (query) {
+          if (query.data == "HIDE") {
+            call("editMessageReplyMarkup", {
+              chat_id: query.message.chat.id,
+              message_id: query.message.message_id
+            });
+          }
+        }
+
+        var inlineQuery = update.inline_query;
+        if (inlineQuery && inlineQuery.query) {
+          call("answerInlineQuery", {
+            inline_query_id: inlineQuery.id,
+            results: [
+              {
+                type: "article",
+                id: "B",
+                title: "Bold",
+                input_message_content: {
+                  message_text: "<b>" + inlineQuery.query + "</b>",
+                  parse_mode: "HTML"
+                },
+                description: inlineQuery.query
+              },
+              {
+                type: "article",
+                id: "I",
+                title: "Italic",
+                input_message_content: {
+                  message_text: "<i>" + inlineQuery.query + "</i>",
+                  parse_mode: "HTML"
+                },
+                description: inlineQuery.query
+              }
+            ]
+          });
+        }
         </textarea><br><br>
 
         <script>
